@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MilanaZhiganshina320_SR.DB;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,15 @@ namespace MilanaZhiganshina320_SR.Pages
     /// </summary>
     public partial class GlavPage : Page
     {
+        public static List<Role> roles { get; set; }
+        public static List<Pet> pets { get; set; }
         public GlavPage()
         {
             InitializeComponent();
+            roles = new List<Role>(DbConnection.PM_SREntities.Role.ToList());
+            pets = new List<Pet>(DbConnection.PM_SREntities.Pet.ToList());
+            this.DataContext = this;
+            EmployeeLV.ItemsSource = new List<Pet>(DbConnection.PM_SREntities.Pet.ToList());
         }
     }
 }

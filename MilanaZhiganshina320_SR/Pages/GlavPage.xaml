@@ -35,10 +35,10 @@
                   Grid.Row="1"
                   Width="120"
                   Height="20"
-                  ItemsSource="{Binding pols}" SelectionChanged="PolCB_SelectionChanged">
+                  ItemsSource="{Binding pets}">
             <ComboBox.ItemTemplate>
                 <DataTemplate>
-                    <TextBlock Text="{Binding Name_Pol}"/>
+                    <TextBlock Text="{Binding Name_pet}"/>
                 </DataTemplate>
             </ComboBox.ItemTemplate>
         </ComboBox>
@@ -49,7 +49,6 @@
                  Width="200"
                  Height="20"/>
         <Button x:Name="SearchBtn"
-                Click="SearchBtn_Click"
                 Content="Найти"
                 Grid.Row="1"
                 Grid.Column="4"
@@ -63,14 +62,13 @@
                    VerticalAlignment="Center" 
                    FontWeight="ExtraLight"
                    FontSize="28"/>
-
         <ListView x:Name="EmployeeLV" 
                   Grid.Column="0" 
                   Grid.ColumnSpan="6" 
                   Margin="67 46 67 10"
                   Grid.Row="1"
                   Grid.RowSpan="5"
-                  ItemsSource="{Binding table_1s}">
+                  ItemsSource="{Binding pets}">
             <ListView.View>
                 <GridView>
                     <GridView.Columns>
@@ -79,7 +77,7 @@
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
                                     <StackPanel>
-                                        <TextBlock Text="{Binding Id}"/>
+                                        <TextBlock Text="{Binding Id_pet}"/>
                                     </StackPanel>
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
@@ -88,7 +86,7 @@
                             Width="90">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
-                                    <TextBlock Text="{Binding Suname}"/>
+                                    <TextBlock Text="{Binding Name_pet}"/>
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>
@@ -96,11 +94,10 @@
                             Width="70">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
-                                    <TextBlock Text="{Binding Name}"/>
+                                    <TextBlock Text="{Binding Opisanie_foto}"/>
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>
-
                         <GridViewColumn Header="Фото"
                             Width="110">
                             <GridViewColumn.CellTemplate>
@@ -113,31 +110,7 @@
                             Width="70">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
-                                    <TextBlock Text="{Binding Date}"/>
-                                </DataTemplate>
-                            </GridViewColumn.CellTemplate>
-                        </GridViewColumn>
-                        <GridViewColumn Header="Пол"
-                            Width="60">
-                            <GridViewColumn.CellTemplate>
-                                <DataTemplate>
-                                    <TextBlock Text="{Binding Pol.Name_Pol}"/>
-                                </DataTemplate>
-                            </GridViewColumn.CellTemplate>
-                        </GridViewColumn>
-                        <GridViewColumn Header="Логин"
-                            Width="105">
-                            <GridViewColumn.CellTemplate>
-                                <DataTemplate>
-                                    <TextBlock Text="{Binding Login}"/>
-                                </DataTemplate>
-                            </GridViewColumn.CellTemplate>
-                        </GridViewColumn>
-                        <GridViewColumn Header="Пароль"
-                            Width="105">
-                            <GridViewColumn.CellTemplate>
-                                <DataTemplate>
-                                    <TextBlock Text="{Binding Login}"/>
+                                    <TextBlock Text="{Binding Role.Name}"/>
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>
@@ -157,6 +130,5 @@
                 Content="Главная" 
                 FontWeight="Medium"
                 Background="Thistle"/>
-
     </Grid>
 </Page>
