@@ -82,7 +82,7 @@
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>
-                        <GridViewColumn Header="Фамилия"
+                        <GridViewColumn Header="Имя животного"
                             Width="90">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
@@ -90,8 +90,8 @@
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>
-                        <GridViewColumn Header="Имя"
-                            Width="70">
+                        <GridViewColumn Header="Описание картинки"
+                            Width="200">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
                                     <TextBlock Text="{Binding Opisanie_foto}"/>
@@ -99,14 +99,14 @@
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>
                         <GridViewColumn Header="Фото"
-                            Width="110">
+                            Width="200">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
                                     <Image Source="{Binding Foto}"/>
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>
-                        <GridViewColumn Header="Дата"
+                        <GridViewColumn Header="Имя хозяйна"
                             Width="70">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>

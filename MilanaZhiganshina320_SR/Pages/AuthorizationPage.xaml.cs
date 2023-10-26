@@ -14,7 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using MilanaZhiganshina320_SR.DB;
 using System.Windows.Shapes;
-
+using System.Diagnostics.Eventing.Reader;
 
 namespace MilanaZhiganshina320_SR.Pages
 {
@@ -37,7 +37,12 @@ namespace MilanaZhiganshina320_SR.Pages
             roles = new List<Role>(DbConnection.PM_SREntities.Role.ToList());
             Role currentUser = roles.FirstOrDefault(i => i.Login == login && i.Password == password);
             if (currentUser != null)
-                NavigationService.Navigate(new GlavPage());
+            {
+        
+                    NavigationService.Navigate(new GlavPage(currentUser));
+           
+            }    
+                
             else
                 MessageBox.Show("Неверные данные");
 
