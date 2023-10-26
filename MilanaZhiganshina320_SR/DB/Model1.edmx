@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Хранилище PM_SRModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="Хранилище PM_SRModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Pet">
           <Key>
             <PropertyRef Name="Id_pet" />
@@ -17,8 +17,8 @@
           <Key>
             <PropertyRef Name="Id_foto" />
           </Key>
-          <Property Name="Id_foto" Type="int" Nullable="false" />
-          <Property Name="Foto" Type="varbinary" MaxLength="50" />
+          <Property Name="Id_foto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Foto" Type="varbinary(max)" />
           <Property Name="Opisanie_foto" Type="nvarchar" MaxLength="50" />
           <Property Name="Id_pet" Type="int" />
         </EntityType>
@@ -79,8 +79,7 @@
             <End Role="Photo" EntitySet="Photo" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="PM_SRModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -99,7 +98,7 @@
             <PropertyRef Name="Id_foto" />
           </Key>
           <Property Name="Id_foto" Type="Int32" Nullable="false" />
-          <Property Name="Foto" Type="Binary" MaxLength="50" FixedLength="false" />
+          <Property Name="Foto" Type="Binary" MaxLength="Max" FixedLength="false" />
           <Property Name="Opisanie_foto" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Id_pet" Type="Int32" />
           <NavigationProperty Name="Pet" Relationship="Self.FK_Photo_Pet" FromRole="Photo" ToRole="Pet" />

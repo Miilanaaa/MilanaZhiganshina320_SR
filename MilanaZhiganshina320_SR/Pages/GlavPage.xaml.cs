@@ -24,12 +24,15 @@ namespace MilanaZhiganshina320_SR.Pages
         public static List<Role> roles { get; set; }
         public static List<Pet> pets { get; set; }
 
+        public static List<Photo> photos { get; set; }
+
         public static Role role1;
         public GlavPage(Role role)
         {
             InitializeComponent();
 
             role1 = role;
+
             roles = new List<Role>(DbConnection.PM_SREntities.Role.ToList());
             pets = new List<Pet>(DbConnection.PM_SREntities.Pet.Where(i => i.Id_role == role1.Id_role));
             this.DataContext = this;
@@ -39,6 +42,11 @@ namespace MilanaZhiganshina320_SR.Pages
         private void PolCB_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             var pat = PolCB.SelectedItem as Pet;
+        }
+
+        private void ExitBT_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new PlusFotoPage(role1));
         }
     }
 }

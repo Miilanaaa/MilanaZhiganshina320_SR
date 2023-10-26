@@ -94,7 +94,7 @@
                             Width="200">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
-                                    <TextBlock Text="{Binding Opisanie_foto}"/>
+                                    <TextBlock Text="{Binding Photo.Opisanie_foto}"/>
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>
@@ -102,7 +102,7 @@
                             Width="200">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
-                                    <Image Source="{Binding Foto}"/>
+                                    <Image Source="{Binding Photo.Foto}"/>
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>
@@ -127,8 +127,8 @@
                 Width="200"
                 Height="40"
                 FontSize="15"
-                Content="Главная" 
+                Content="Добавить фото" 
                 FontWeight="Medium"
-                Background="Thistle"/>
+                Background="Thistle" Click="ExitBT_Click"/>
     </Grid>
 </Page>
