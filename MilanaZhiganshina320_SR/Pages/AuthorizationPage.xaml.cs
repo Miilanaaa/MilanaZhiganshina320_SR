@@ -38,9 +38,7 @@ namespace MilanaZhiganshina320_SR.Pages
             Role currentUser = roles.FirstOrDefault(i => i.Login == login && i.Password == password);
             if (currentUser != null)
             {
-        
                     NavigationService.Navigate(new GlavPage(currentUser));
-           
             }    
                 
             else

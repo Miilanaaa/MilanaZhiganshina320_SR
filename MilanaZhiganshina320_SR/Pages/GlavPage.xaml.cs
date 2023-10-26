@@ -35,5 +35,10 @@ namespace MilanaZhiganshina320_SR.Pages
             this.DataContext = this;
             EmployeeLV.ItemsSource = new List<Pet>(DbConnection.PM_SREntities.Pet.Where(i => i.Id_role == role1.Id_role));
         }
+
+        private void PolCB_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var pat = PolCB.SelectedItem as Pet;
+        }
     }
 }
