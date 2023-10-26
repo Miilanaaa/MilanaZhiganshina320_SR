@@ -30,18 +30,6 @@
         <Image Grid.RowSpan="8"
                Grid.ColumnSpan="6"
                Source="/img/foto_1.jpg"/>
-        <ComboBox x:Name="PolCB"
-                  Grid.Column="1"
-                  Grid.Row="1"
-                  Width="120"
-                  Height="20"
-                  ItemsSource="{Binding pets}" SelectionChanged="PolCB_SelectionChanged">
-            <ComboBox.ItemTemplate>
-                <DataTemplate>
-                    <TextBlock Text="{Binding Name_pet}"/>
-                </DataTemplate>
-            </ComboBox.ItemTemplate>
-        </ComboBox>
         <TextBox Grid.Row="1"
                  Grid.Column="2"
                  Grid.ColumnSpan="2"
@@ -53,7 +41,7 @@
                 Grid.Row="1"
                 Grid.Column="4"
                 Height="25"
-                Width="100"/>
+                Width="100" Click="SearchBtn_Click_1"/>
         <TextBlock Grid.Column="1" 
                    Grid.ColumnSpan="4" 
                    Grid.Row="0" 
@@ -68,7 +56,7 @@
                   Margin="67 46 67 10"
                   Grid.Row="1"
                   Grid.RowSpan="5"
-                  ItemsSource="{Binding pets}">
+                  ItemsSource="{Binding photos}">
             <ListView.View>
                 <GridView>
                     <GridView.Columns>
@@ -94,7 +82,7 @@
                             Width="200">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
-                                    <TextBlock Text="{Binding Photo.Opisanie_foto}"/>
+                                    <TextBlock Text="{Binding Opisanie_foto}"/>
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>
@@ -102,7 +90,7 @@
                             Width="200">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
-                                    <Image Source="{Binding Photo.Foto}"/>
+                                    <Image Source="{Binding Foto}"/>
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>

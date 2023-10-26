@@ -36,17 +36,23 @@ namespace MilanaZhiganshina320_SR.Pages
             roles = new List<Role>(DbConnection.PM_SREntities.Role.ToList());
             pets = new List<Pet>(DbConnection.PM_SREntities.Pet.Where(i => i.Id_role == role1.Id_role));
             this.DataContext = this;
-            EmployeeLV.ItemsSource = new List<Pet>(DbConnection.PM_SREntities.Pet.Where(i => i.Id_role == role1.Id_role));
+            EmployeeLV.ItemsSource = DbConnection.PM_SREntities.Pet.Where(i => i.Id_role == role1.Id_role).ToList();
         }
 
-        private void PolCB_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            var pat = PolCB.SelectedItem as Pet;
-        }
 
         private void ExitBT_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new PlusFotoPage(role1));
+        }
+
+        private void SearchBtn_Click(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
+        private void SearchBtn_Click_1(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
