@@ -26,6 +26,7 @@ namespace MilanaZhiganshina320_SR.DB
         }
     
         public virtual DbSet<Pet> Pet { get; set; }
+        public virtual DbSet<Photo> Photo { get; set; }
         public virtual DbSet<Role> Role { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
     }

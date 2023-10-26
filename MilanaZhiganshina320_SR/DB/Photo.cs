@@ -12,20 +12,13 @@ namespace MilanaZhiganshina320_SR.DB
     using System;
     using System.Collections.Generic;
     
-    public partial class Pet
+    public partial class Photo
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Pet()
-        {
-            this.Photo = new HashSet<Photo>();
-        }
+        public int Id_foto { get; set; }
+        public byte[] Foto { get; set; }
+        public string Opisanie_foto { get; set; }
+        public Nullable<int> Id_pet { get; set; }
     
-        public int Id_pet { get; set; }
-        public string Name_pet { get; set; }
-        public Nullable<int> Id_role { get; set; }
-    
-        public virtual Role Role { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Photo> Photo { get; set; }
+        public virtual Pet Pet { get; set; }
     }
 }

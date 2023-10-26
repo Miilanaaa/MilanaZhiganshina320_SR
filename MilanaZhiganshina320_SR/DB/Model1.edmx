@@ -11,9 +11,16 @@
           </Key>
           <Property Name="Id_pet" Type="int" Nullable="false" />
           <Property Name="Name_pet" Type="nvarchar" MaxLength="50" />
-          <Property Name="Foto" Type="varbinary(max)" />
-          <Property Name="Opisanie_foto" Type="nvarchar" MaxLength="50" />
           <Property Name="Id_role" Type="int" />
+        </EntityType>
+        <EntityType Name="Photo">
+          <Key>
+            <PropertyRef Name="Id_foto" />
+          </Key>
+          <Property Name="Id_foto" Type="int" Nullable="false" />
+          <Property Name="Foto" Type="varbinary" MaxLength="50" />
+          <Property Name="Opisanie_foto" Type="nvarchar" MaxLength="50" />
+          <Property Name="Id_pet" Type="int" />
         </EntityType>
         <EntityType Name="Role">
           <Key>
@@ -46,13 +53,30 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Photo_Pet">
+          <End Role="Pet" Type="Self.Pet" Multiplicity="0..1" />
+          <End Role="Photo" Type="Self.Photo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pet">
+              <PropertyRef Name="Id_pet" />
+            </Principal>
+            <Dependent Role="Photo">
+              <PropertyRef Name="Id_pet" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="Хранилище PM_SRModelContainer">
           <EntitySet Name="Pet" EntityType="Self.Pet" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Photo" EntityType="Self.Photo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_Pet_Role" Association="Self.FK_Pet_Role">
             <End Role="Role" EntitySet="Role" />
             <End Role="Pet" EntitySet="Pet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Photo_Pet" Association="Self.FK_Photo_Pet">
+            <End Role="Pet" EntitySet="Pet" />
+            <End Role="Photo" EntitySet="Photo" />
           </AssociationSet>
         </EntityContainer>
       </Schema>
@@ -66,10 +90,19 @@
           </Key>
           <Property Name="Id_pet" Type="Int32" Nullable="false" />
           <Property Name="Name_pet" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Foto" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <Property Name="Opisanie_foto" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Id_role" Type="Int32" />
           <NavigationProperty Name="Role" Relationship="Self.FK_Pet_Role" FromRole="Pet" ToRole="Role" />
+          <NavigationProperty Name="Photo" Relationship="Self.FK_Photo_Pet" FromRole="Pet" ToRole="Photo" />
+        </EntityType>
+        <EntityType Name="Photo">
+          <Key>
+            <PropertyRef Name="Id_foto" />
+          </Key>
+          <Property Name="Id_foto" Type="Int32" Nullable="false" />
+          <Property Name="Foto" Type="Binary" MaxLength="50" FixedLength="false" />
+          <Property Name="Opisanie_foto" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Id_pet" Type="Int32" />
+          <NavigationProperty Name="Pet" Relationship="Self.FK_Photo_Pet" FromRole="Photo" ToRole="Pet" />
         </EntityType>
         <EntityType Name="Role">
           <Key>
@@ -103,13 +136,30 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Photo_Pet">
+          <End Role="Pet" Type="Self.Pet" Multiplicity="0..1" />
+          <End Role="Photo" Type="Self.Photo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pet">
+              <PropertyRef Name="Id_pet" />
+            </Principal>
+            <Dependent Role="Photo">
+              <PropertyRef Name="Id_pet" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="PM_SREntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Pet" EntityType="Self.Pet" />
+          <EntitySet Name="Photo" EntityType="Self.Photo" />
           <EntitySet Name="Role" EntityType="Self.Role" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
           <AssociationSet Name="FK_Pet_Role" Association="Self.FK_Pet_Role">
             <End Role="Role" EntitySet="Role" />
             <End Role="Pet" EntitySet="Pet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Photo_Pet" Association="Self.FK_Photo_Pet">
+            <End Role="Pet" EntitySet="Pet" />
+            <End Role="Photo" EntitySet="Photo" />
           </AssociationSet>
         </EntityContainer>
       </Schema>
@@ -123,9 +173,17 @@
               <MappingFragment StoreEntitySet="Pet">
                 <ScalarProperty Name="Id_pet" ColumnName="Id_pet" />
                 <ScalarProperty Name="Name_pet" ColumnName="Name_pet" />
+                <ScalarProperty Name="Id_role" ColumnName="Id_role" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Photo">
+            <EntityTypeMapping TypeName="PM_SRModel.Photo">
+              <MappingFragment StoreEntitySet="Photo">
+                <ScalarProperty Name="Id_foto" ColumnName="Id_foto" />
                 <ScalarProperty Name="Foto" ColumnName="Foto" />
                 <ScalarProperty Name="Opisanie_foto" ColumnName="Opisanie_foto" />
-                <ScalarProperty Name="Id_role" ColumnName="Id_role" />
+                <ScalarProperty Name="Id_pet" ColumnName="Id_pet" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

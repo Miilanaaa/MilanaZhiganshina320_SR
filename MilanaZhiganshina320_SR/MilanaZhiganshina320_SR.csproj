@@ -91,6 +91,9 @@
     <Compile Include="DB\Pet.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="DB\Photo.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="DB\Role.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>

@@ -4,11 +4,13 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="9d89e5bef5874f06b9c2830d5dc5d261" Name="Diagram1">
+      <Diagram DiagramId="52d2f05c2e4c478ab10fde9faa9e0641" Name="Diagram1">
         <EntityTypeShape EntityType="PM_SRModel.Pet" Width="1.5" PointX="3" PointY="0.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="PM_SRModel.Role" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="PM_SRModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PM_SRModel.Photo" Width="1.5" PointX="5.25" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PM_SRModel.Role" Width="1.5" PointX="0.75" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PM_SRModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
         <AssociationConnector Association="PM_SRModel.FK_Pet_Role" ManuallyRouted="false" />
+        <AssociationConnector Association="PM_SRModel.FK_Photo_Pet" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
